@@ -1,0 +1,100 @@
+:root {
+    --dark-color: #000000;
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--dark-color);
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.title {
+    z-index: 1;
+    margin-top: 130px;
+    color: white;
+    font-size: 50px;
+    text-shadow: 0px 0px 20px #508AD3;
+    font-family: 'Barlow', sans-serif;
+}
+
+button {
+    margin-top: 280px;
+    width: 150px;
+    height: 60px;
+    background-color: rgb(50, 50, 255);
+    color: #fff;
+    border-radius: 30px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: rgb(36, 36, 255);
+}
+
+.line {
+    position: absolute;
+    top: calc(100vh - 555px);
+    left: calc(50% - 12px);
+    width: 0;
+    height: 30px;
+    border: 3px solid #fff;
+    animation: animate 1.5s infinite;
+}
+
+.line:after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -8px;
+    width: 15px;
+    height: 16px;
+    border-bottom: 5px solid #fff;
+    border-right: 5px solid #fff;
+    transform: rotate(45deg);
+}
+
+@keyframes animate {
+    0%{
+        margin-top: 0;
+    }
+    50%{
+        margin-top: 20px;
+    }
+    100%{
+        margin-top: 0;
+    }
+}
+
+
+.night {
+    position: fixed;
+    z-index: -1;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    filter: blur(0.1vmin);
+    background-image: radial-gradient(ellipse at top, transparent 0%, var(--dark-color)), radial-gradient(ellipse at bottom, var(--dark-color), rgba(145, 233, 255, 0.2)), repeating-linear-gradient(220deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(189deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), repeating-linear-gradient(148deg, rgb(0, 0, 0) 0px, rgb(0, 0, 0) 19px, transparent 19px, transparent 22px), linear-gradient(90deg, rgb(7, 107, 42), rgb(240, 240, 240));
+}
